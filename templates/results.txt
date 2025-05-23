@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Results</title>
+</head>
+<body>
+    <h1>Summary</h1>
+    <p>{{ summary }}</p>
+
+    <h1>Questions</h1>
+    <ul>
+        {% for question in questions %}
+            <li>{{ question }}</li>
+        {% endfor %}
+    </ul>
+
+    <h1>MCQs</h1>
+    <ul>
+        {% for mcq in mcqs %}
+            <li>{{ mcq }}</li>
+        {% endfor %}
+    </ul>
+    
+    <a href="/">Back</a>
+</body>
+</html>

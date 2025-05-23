@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Results</h1>
+    </header>
+    <div class="container">
+        {% if summary %}
+            <section>
+                <h2>Summary</h2>
+                <p>{{ summary }}</p>
+            </section>
+        {% endif %}
+
+        {% if questions %}
+            <section>
+                <h2>Questions</h2>
+                <ul>
+                    {% for question in questions %}
+                        <li>{{ question }}</li>
+                    {% endfor %}
+                </ul>
+            </section>
+        {% endif %}
+
+        {% if mcqs %}
+            <section>
+                <h2>Fill-In-The-Blanks</h2>
+                <ul>
+                    {% for mcq in mcqs %}
+                        <li>{{ mcq }}</li>
+                    {% endfor %}
+                </ul>
+            </section>
+        {% endif %}
+        
+        {% if story_text_urdu %}
+            <section>
+                <h2>Urdu Translation</h2>
+                <p>{{ story_text_urdu }}</p>
+            </section>
+        {% endif %}
+
+        <a href="{{ url_for('index') }}">Go Back</a>
+    </div>
+</body>
+</html>

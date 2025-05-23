@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Educator Right Hand</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script>
+        function randomColor() {
+            const letters = '0123456789ABCDEF';
+            let color = '#';
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+        function changeBackgroundColor() {
+            const header = document.querySelector('header');
+            header.style.backgroundColor = randomColor();
+        }
+    </script>
+</head>
+<body>
+    <header onclick="changeBackgroundColor()">
+        <h1>Educator Right Hand</h1>
+    </header>
+    <div class="container">
+        <form action="/process" method="post" class="form-container">
+            <label for="story_text">Enter your story:</label>
+            <textarea name="story_text" id="story_text" placeholder="Type your story here..."></textarea>
+            
+            <h2>Select what you want to generate:</h2>
+            <label>
+                <input type="checkbox" name="generate_options" value="summary"> Summary
+            </label>
+            <label>
+                <input type="checkbox" name="generate_options" value="questions"> Questions
+            </label>
+            <label>
+                <input type="checkbox" name="generate_options" value="mcqs"> MCQs
+            </label>
+            <label>
+                <input type="checkbox" name="generate_options" value="story_text_urdu"> Urdu Translation
+            </label>
+
+            <button type="submit">Process</button>
+        </form>
+    </div>
+</body>
+</html>
